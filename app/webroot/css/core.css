@@ -1,0 +1,104 @@
+th.condensed, td.condensed{width: 1%;}
+
+h1, h2, h3, h4, h5, h6 {
+	border: none;
+	margin-bottom: 10px;
+}
+
+.clear{
+	clear: both;
+}
+
+body {
+	background: #F1F1F1;
+	#background: #fff url(http://www.southalltravel.co.uk/images/bg.jpg) center 0px no-repeat;
+}
+
+.container {
+	background: #fff;
+}
+
+.logo {
+	height: 130px;
+	background-image:url('../img/Logos/logo_small.png');
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+.btn-white {
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(50%, #eeeeee), to(#e4e4e4));
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(50%, #eeeeee), to(#e4e4e4));
+	background-image: -webkit-linear-gradient(#ffffff, #eeeeee 50%, #e4e4e4);
+	background-image: -moz-linear-gradient(top, #ffffff, #eeeeee 50%, #e4e4e4);
+	background-image: linear-gradient(#ffffff, #eeeeee 50%, #e4e4e4);
+	background-repeat: no-repeat;
+	border: 1px solid #345578;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe4e4e4', GradientType=0);
+	filter: none;
+}
+
+.btn-white:hover {
+	color: #208ff2;
+}
+
+.navbar-collapse {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus { background-color: #FF6600; }
+
+.header-social-row {
+	text-align: left;
+	font-size: 1.6em;
+}
+
+.page-content-left {
+	/* border-right: 3px solid rgba(32, 143, 242, 0.4); */
+	/* padding: 3px; */
+}
+
+.fa-xl {
+	font-size: 120px;
+}
+
+.panel {
+	min-height: 200px;
+}
+
+.panel-heading {
+	border-top-left-radius : 0px;
+	border-top-right-radius : 0px;
+}
+
+.admin-dashboard-tile {
+	border-left: 3px solid rgba(32, 143, 242, 0.4);
+	border-right: 3px solid rgba(32, 143, 242, 0.4);
+	text-align: center;
+}
+
+#footer {
+	min-height: 120px;
+	background-color: #333333;
+}
+
+#bottom-shade {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 0 20px;
+	box-shadow: 1px 1px 5px 0 rgba(11,30,44,0.9);
+	overflow: hidden;
+	background-color: #234;
+	background-color: rgba(11, 30, 44, 0.9);
+	z-index: 1051;
+}
+#bottom-shade .alert {
+	left: 50%;
+	position: relative;
+	margin-left: -500px;
+	width: 950px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
