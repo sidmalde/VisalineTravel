@@ -15,7 +15,7 @@ class DATABASE_CONFIG {
 	public $live = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => '88.208.249.192',
+		'host' => 'localhost',
 		'login' => 'sidmalde',
 		'password' => 'F3rrari1',
 		'database' => 'sidmalde_visaline',
