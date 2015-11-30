@@ -21,7 +21,7 @@ class Page extends AppModel {
 	var $hasMany = array('ChildPage' => array('className' => 'Page', 'foreignKey' => 'parent_page_id', 'order' => 'ChildPage.position ASC'));
 	
 	
-	function beforeSave($options){
+	function beforeSave($options = array()){
 		if(!empty($this->data['Page']['parent_page_id']) && !empty($this->data['Page']['url'])){
 			$this->data['Page']['url'] = $this->_formatPageUrl($this->data['Page']['url'], $this->data['Page']['parent_page_id']); //Format the URL for the record
 		}

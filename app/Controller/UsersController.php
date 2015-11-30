@@ -153,13 +153,13 @@ class UsersController extends AppController {
 			if ($this->Auth->user('group_id') == '526b00e9-2d10-41bd-bf86-1b64d96041f1') {
 				$this->redirect('/system-management/users');
 			} else {
-				$this->redirect('/myportal');
+				$this->redirect(array('controller' => 'pages', 'action' => 'dashboard', 'admin' => true));
 			}
 		} else {
 			if ($this->request->is('post')) {
 				if ($this->Auth->login()) {
-					if ($this->Auth->user('group_id') == '526b00e9-2d10-41bd-bf86-1b64d96041f1') {
-						$this->redirect('/system-management/users');
+					if ($this->Auth->user('group_id') == '52c1e2df-87c0-4b14-9ba9-0dc0d96041f1') {
+						$this->redirect('/dashboard');
 					} else {
 						$this->redirect('/myportal');
 					}
@@ -170,7 +170,7 @@ class UsersController extends AppController {
 		}
 	}
 
-	public function register() {
+	/* public function register() {
 		$this->layout = 'default';
 		if (!empty($this->request->data)) {
 			if ($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']) {
@@ -194,7 +194,7 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('Passwords do not match, please try again'), 'flash_failure');
 			}
 		}
-	}
+	} */
 
 	public function logout() {
 		$this->Session->setFlash(__('You have now been logged out'), 'flash_success');

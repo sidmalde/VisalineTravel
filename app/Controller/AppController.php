@@ -88,4 +88,17 @@ class AppController extends Controller {
 		$this->pagesInNav = $pages;
 		$this->set('pagesInNav', $pages);
 	}
+
+	function generateRandomString($type = 'username', $length = 10) {
+		if ($type == 'username') {
+			$string = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		} elseif ($type == 'password') {
+			$string = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]()!@^,~|=-+_{}#";
+		} elseif ($type == 'verificationCode') {
+			$string = "0123456789abcdefghijklmnopqrstuvwxyz";
+		} else {
+			$string = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		}
+		return substr(str_shuffle($string), 0, $length);
+	}
 }

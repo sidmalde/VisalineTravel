@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="col-sm-9">
-		<a href="/"><div class="logo"></div></a>
+	</br>
+	&nbsp;
 	</div>
 	<div class="col-sm-3">
 		

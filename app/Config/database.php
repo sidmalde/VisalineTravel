@@ -23,11 +23,12 @@ class DATABASE_CONFIG {
 	);
 	
 	function __construct(){
-		if (strpos($_SERVER['HTTP_HOST'],'test.') !== false) {
+		/*if (strpos($_SERVER['HTTP_HOST'],'test.') !== false) {
 			$this->default = $this->live;
 		} else {
 			$this->default = $this->default;
-		}
+		}*/
+		$this->default = $this->default;
 	}
 	
 	function DATABASE_CONFIG(){

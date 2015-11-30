@@ -960,7 +960,12 @@ class FormHelper extends AppHelper {
  */
 	public function input($fieldName, $options = array()) {
 		$this->setEntity($fieldName);
-		$options['class'] = 'form-control';
+		
+		if (!empty($options['class'])) {
+			$options['class'] .= ' form-control';
+		} else {
+			$options['class'] = 'form-control';
+		}
 		$options = $this->_parseOptions($options);
 
 		$divOptions = $this->_divOptions($options);

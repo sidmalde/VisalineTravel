@@ -12,9 +12,6 @@
 		<?=$this->Form->input('firstname');?>
 		<?=$this->Form->input('lastname');?>
 		<?=$this->Form->input('password');?>
-		<?=$this->Form->input('date_of_birth');?>
-		<?=$this->Form->input('gender', array('empty' => __('Please select an option:'), 'options' => $userGenders));?>
-		<?=$this->Form->input('phone');?>
 		<?=$this->Form->input('mobile');?>
 		<div class="clear">&nbsp;</div>
 		<?=$this->Form->button(__('Save'), array('type' => 'submit', 'class' => 'btn btn-success'));?>

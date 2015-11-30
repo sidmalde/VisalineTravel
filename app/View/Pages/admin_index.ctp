@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col-xs-12">
 		<? if (!empty($pages)): ?>
-			<table class="table table-hover table-striped">
+			<table class="table table-hover table-striped table-bordered">
 				<tr>
 					<th><?=__('Title');?></th>
 					<th><?=__('Url');?></th>

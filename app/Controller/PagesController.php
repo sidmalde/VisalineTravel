@@ -1,35 +1,9 @@
 <?php
-/**
- * Static content controller.
- *
- * This file will render views from views/pages/
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.Controller
- * @since         CakePHP(tm) v 0.2.9
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
 App::uses('AppController', 'Controller');
 
-/**
- * Static content controller
- *
- * Override this controller by placing a copy in controllers directory of an application
- *
- * @package       app.Controller
- * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
- */
 class PagesController extends AppController {
+
+	var $uses = array('Page', 'Region');
 
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -92,8 +66,111 @@ class PagesController extends AppController {
 	
 	function home() {
 		$this->layout = 'default';
-		$title_for_layout = __('Ninth Galaxy :: Art Universe');
-		$this->set(compact(array('title_for_layout')));
+		$regions = array(
+			0 => array(
+				'Region' => array(
+					'id' => 'lascnaspocnsapoc',
+					'ref' => '3417',
+					'region' => 'Wild Africa',
+				),
+				'Offer' => array(
+					0 => array(
+						'id' => 'w[CDMKQW[PC,WQC',
+						'ref' => '3417/12',
+						'title' => 'NAIROBI Direct SPECIAL OFFER',
+						'price' => '520',
+					),
+					1 => array(
+						'id' => 'w[CDMKQW[PC,WQC',
+						'ref' => '3417/13',
+						'title' => 'NAIROBI Extra SPECIAL OFFER',
+						'price' => '499',
+					),
+					2 => array(
+						'id' => 'w[CDMKQW[PC,WQC',
+						'ref' => '3417/14',
+						'title' => 'ENTEBBE SPECIAL OFFER',
+						'price' => '300',
+					),
+				),
+			),
+			1 => array(
+				'Region' => array(
+					'id' => 'lascnaspocnsapoc',
+					'ref' => '3418',
+					'region' => 'Spicy Asia',
+				),
+				'Offer' => array(
+					0 => array(
+						'id' => 'w[CDMKQW[PC,WQC',
+						'ref' => '3418/12',
+						'title' => 'MUMBAI Direct EXTRA SPECIAL',
+						'price' => '485',
+					),
+					1 => array(
+						'id' => 'w[CDMKQW[PC,WQC',
+						'ref' => '3418/13',
+						'title' => 'Fly DREAMLINER MUMBAI DELHI Direct Specials',
+						'price' => '465',
+					),
+					2 => array(
+						'id' => 'w[CDMKQW[PC,WQC',
+						'ref' => '3418/14',
+						'title' => 'MUMBAI DELHI Direct SUPER Special Offers',
+						'price' => '475',
+					),
+				),
+			),
+			2 => array(
+				'Region' => array(
+					'id' => 'lascnaspocnsapoc',
+					'ref' => '3419',
+					'region' => 'Far East',
+				),
+				'Offer' => array(
+					0 => array(
+						'id' => 'w[CDMKQW[PC,WQC',
+						'ref' => '3419/12',
+						'title' => 'MUMBAI Direct EXTRA SPECIAL',
+						'price' => '485',
+					),
+					1 => array(
+						'id' => 'w[CDMKQW[PC,WQC',
+						'ref' => '3419/13',
+						'title' => 'Fly DREAMLINER MUMBAI DELHI Direct Specials',
+						'price' => '465',
+					),
+					2 => array(
+						'id' => 'w[CDMKQW[PC,WQC',
+						'ref' => '3419/14',
+						'title' => 'MUMBAI DELHI Direct SUPER Special Offers',
+						'price' => '475',
+					),
+				),
+			),
+		);
+		// $options = array(
+		// 	'conditions' => array(
+		// 		'Offer.publish' => true,
+		// 	)
+		// );
+		$this->Region->contain(array(
+			'Offer' => array(
+				'conditions' => array(
+					'Offer.publish' => true,
+					'Offer.date_end <=' => date('Y-m-d 00:00:00'),
+				),
+				'order' => array(
+					'Offer.display_order' => 'ASC'
+				),
+				'limit' => 10
+			),
+		));
+		$regions = $this->Region->find('all');
+		// debug($regions);
+		// die;
+		$title_for_layout = __('Our Current Special Offers');
+		$this->set(compact(array('title_for_layout', 'regions')));
 	}
 	
 	function admin_index() {
@@ -124,7 +201,6 @@ class PagesController extends AppController {
 				$this->Session->setFlash(__('There was a problem saving the page.'), 'flash_failure');
 			}
 		}
-		
 		
 		$title_for_layout = __('CMS :: Pages :: New');
 		$this->set(compact(array('title_for_layout')));
@@ -176,7 +252,6 @@ class PagesController extends AppController {
 	}
 	
 	function admin_dashboard() {
-		
 		$title_for_layout = __('Dashboard');
 		$this->set(compact(array('title_for_layout')));
 	}

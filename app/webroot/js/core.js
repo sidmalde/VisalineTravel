@@ -1,4 +1,10 @@
 $(document).ready(function(){
+	if($('.datepicker').length > 0) {
+		$('.datepicker').datetimepicker({
+			format: 'DD MMM YYYY'
+		});
+	}
+
 	$('.clear-form').on('click', function() {
 		$formId = $(this).closest('form').attr('id');
 		$clearingClass = $(this).data('clearing-class');
@@ -65,12 +71,14 @@ $(document).ready(function(){
 			$('html,body').animate({ scrollTop: 0}, "slow");
 		});
 	}
-	nicEditors.allTextAreas(
+	/* nicEditors.allTextAreas(
 		{
 			iconsPath : '/js/nicedit/nicEditorIcons.gif',
 			fullPanel : true,
 		}
-	);
+	); */
+
+	$('.datatable').DataTable();
 });
 
 function animBottomMargin(){

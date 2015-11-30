@@ -41,8 +41,9 @@
 											</th>
 										</tr>
 									</thead>
-									<? foreach ($group['User'] as $user): ?>
-											<tr <?=empty($user['deleted']) ? 'class="success"' : 'class="error"';?>>
+									<tbody>
+										<? foreach ($group['User'] as $user): ?>
+											<tr>
 												<td><?=$user['email']; ?>&nbsp;</td>
 												<td><?=$user['fullname']; ?>&nbsp;</td>
 												<td><?=$user['mobile']; ?>&nbsp;</td>
@@ -61,7 +62,8 @@
 													</div>
 												</td>
 											</tr>
-									<? endforeach; ?>
+										<? endforeach; ?>
+									</tbody>
 								</table>
 							<? else: ?>
 								<div class="alert alert-info">
